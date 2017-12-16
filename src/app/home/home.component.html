@@ -181,20 +181,19 @@
         </div>
       </div>
       <div class="grid_7">
-        <form id="newsletter" [formGroup]="contactForm">
+        <form id="newsletter" [formGroup]="newsletterForm" (ngSubmit)="onSubmit(newsletterForm.value)">
           <div class="row">
             <div class="grid_4">
               <div class="rel">
                 <div class="success">Your subscrsibe request has been sent!</div>
                 <label class="email">
-                  <input type="email" value="Your Email Address Here">
-                  <span class="error">*This is not a valid email address.</span>
+                  <input type="email" value="Your Email Address Here" formControlName="email">
                   <span class="clear"></span>
                 </label>
               </div>
             </div>
             <div class="grid_3">
-              <a href="#" class="btn bt__2" data-type="submit">Submit</a>
+              <input type="submit"  value="Submit" [disabled]="!newsletterForm.valid" >
             </div>
           </div>
         </form>

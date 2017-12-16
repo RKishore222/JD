@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser'
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,6 @@ import { Meta, Title } from '@angular/platform-browser'
 export class HomeComponent implements OnInit {
 
   constructor(meta: Meta, title: Title) {
-
     title.setTitle('JD Photography - Professional | Studio | Candid | Blog');
     meta.addTags([
       {
@@ -23,8 +23,14 @@ export class HomeComponent implements OnInit {
       }
     ])
   }
-
+  newsletterForm: any;
   ngOnInit() {
+    this.newsletterForm = new FormGroup({
+      email: new FormControl("", Validators.compose([Validators.required, Validators.email])),
+    });
   }
 
+  onSubmit = function (user) {
+    console.log(user);
+  }
 }
