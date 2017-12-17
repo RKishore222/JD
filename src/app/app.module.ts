@@ -9,7 +9,8 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { appRoutes } from './app.route';
-import { HomeComponent } from './home/home.component'
+import { HomeComponent } from './home/home.component';
+import {Validations} from './common/validation'
 
 @NgModule({
   declarations: [
@@ -23,8 +24,9 @@ import { HomeComponent } from './home/home.component'
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule
+    
   ],
-  providers: [],
+  providers: [Validations],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

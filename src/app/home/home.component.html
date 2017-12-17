@@ -188,12 +188,13 @@
                 <div class="success">Your subscrsibe request has been sent!</div>
                 <label class="email">
                   <input type="email" value="Your Email Address Here" formControlName="email">
+                  <div class="error" *ngIf="!newsletterForm.controls['email'].valid && newsletterForm.controls['email'].touched">{{email}}</div>
                   <span class="clear"></span>
                 </label>
               </div>
             </div>
             <div class="grid_3">
-              <input type="submit"  value="Submit" [disabled]="!newsletterForm.valid" >
+              <input type="submit"  value="Submit" [disabled]="!newsletterForm.valid">
             </div>
           </div>
         </form>

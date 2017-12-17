@@ -5,21 +5,29 @@
       <div class="grid_12">
         <div class="map">
           <figure>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24214.807650104907!2d-73.94846048422478!3d40.65521573400813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1395650655094" style="border:0"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24214.807650104907!2d-73.94846048422478!3d40.65521573400813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1395650655094"
+              style="border:0"></iframe>
           </figure>
         </div>
       </div>
       <div class="clear"></div>
       <div class="grid_5">
         <h3>Contact Info</h3>
-        <p>24/7 support is on for all <span class="color1"><a href="http://www.templatemonster.com/website-templates.php" rel="nofollow">premium designs</a></span> of TemplateMonster. Free templates go without it.</p>
-        <p>Need help in customization? Ask guys from <span class="color1"><a href="http://www.templatetuning.com/" rel="nofollow">TemplateTuning</a></span>.</p>
-        The Company Name Inc. <br>
-        9870 St Vincent Place,<br>
-        Glasgow, DC 45 Fr 45.<br>
-        Telephone: +1 800 603 6035<br>
-        FAX: +1 800 889 9898<br>
-        E-mail: <a href="#">mail@demolink.org</a>
+        <p>24/7 support is on for all
+          <span class="color1">
+            <a href="http://www.templatemonster.com/website-templates.php" rel="nofollow">premium designs</a>
+          </span> of TemplateMonster. Free templates go without it.</p>
+        <p>Need help in customization? Ask guys from
+          <span class="color1">
+            <a href="http://www.templatetuning.com/" rel="nofollow">TemplateTuning</a>
+          </span>.</p>
+        The Company Name Inc.
+        <br> 9870 St Vincent Place,
+        <br> Glasgow, DC 45 Fr 45.
+        <br> Telephone: +1 800 603 6035
+        <br> FAX: +1 800 889 9898
+        <br> E-mail:
+        <a href="#">mail@demolink.org</a>
       </div>
       <div class="grid_6 preffix_1">
         <h3>Contact Form</h3>
@@ -28,24 +36,32 @@
             <div class="success-message">Contact form submitted</div>
           </div>
           <label class="name">
-            <input type="text" placeholder="Name:" data-constraints="@Required @JustLetters" formControlName="name" />
-            <span class="empty-message">*This field is required.</span>
-            <span class="error-message">*This is not a valid name.</span>
+            <input type="text" placeholder="Name:" formControlName="name" />
+            <div class="error" *ngIf="!contactForm.controls['name'].valid && (contactForm.controls['name'].dirty || contactForm.controls['name'].touched)">
+              <p *ngIf="contactForm.controls['name'].errors.required">FirstName is required</p>
+              <p *ngIf="contactForm.controls['name'].errors.minlength">FirstName must be 3 characters long</p>
+            </div>
           </label>
           <label class="email">
-            <input type="text" placeholder="E-mail:" data-constraints="@Required @Email" formControlName="email" />
-            <span class="empty-message">*This field is required.</span>
-            <span class="error-message">*This is not a valid email.</span>
+            <input type="text" placeholder="E-mail:" formControlName="email" />
+            <div class="error" *ngIf="!contactForm.controls['email'].valid && (contactForm.controls['email'].dirty || contactForm.controls['email'].touched)">
+              <p *ngIf="contactForm.controls['email'].errors.required">Email is required</p>
+              <p *ngIf="contactForm.controls['email'].invalid">Please enter valid email id</p>
+            </div>
           </label>
           <label class="phone">
-            <input type="text" placeholder="Phone:" data-constraints="@Required @JustNumbers" formControlName="phone" />
-            <span class="empty-message">*This field is required.</span>
-            <span class="error-message">*This is not a valid phone.</span>
+            <input type="text" placeholder="Phone:" formControlName="phone" />
+            <div class="error" *ngIf="!contactForm.controls['phone'].valid && (contactForm.controls['phone'].dirty || contactForm.controls['phone'].touched)">
+              <p *ngIf="contactForm.controls['phone'].errors.required">Phone number is required</p>
+            </div>
           </label>
           <label class="message">
-            <textarea placeholder="Message:" data-constraints='@Required @Length(min=20,max=999999)' formControlName="message"></textarea>
-            <span class="empty-message">*This field is required.</span>
-            <span class="error-message">*The message is too short.</span>
+            <textarea placeholder="Message:" formControlName="message"></textarea>
+            <div class="error" *ngIf="!contactForm.controls['message'].valid && (contactForm.controls['message'].dirty || contactForm.controls['message'].touched)">
+              <p *ngIf="contactForm.controls['message'].errors.required">Message is required</p>
+              <p *ngIf="contactForm.controls['message'].errors.minlength">Message must be 10 characters long</p>
+              <p *ngIf="contactForm.controls['message'].errors.maxlength">Message must be 15 characters long</p>
+            </div>
           </label>
           <div>
             <div class="clear"></div>
@@ -54,7 +70,7 @@
               <a href="#" data-type="submit" class="btn bt__2">Submit</a>
             </div>-->
             <div class="btns">
-              <input type="submit"  value="Submit" [disabled]="!contactForm.valid" />
+              <input type="submit" value="Submit" [disabled]="!contactForm.valid" />
               <br/>
               <input type="button" value="Clear" />
             </div>

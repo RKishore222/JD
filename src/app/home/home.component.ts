@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser'
 import { FormGroup, FormControl, Validators } from '@angular/forms'
+import {Validations} from '../common/validation'
 
 @Component({
   selector: 'app-home',
@@ -8,8 +9,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(meta: Meta, title: Title) {
+  email:string;
+  constructor(meta: Meta, title: Title,validations: Validations) {
+    this.email = validations.email;
     title.setTitle('JD Photography - Professional | Studio | Candid | Blog');
     meta.addTags([
       {
